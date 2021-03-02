@@ -10,8 +10,12 @@ function getLists() {
     .then((lists) => {
       lists.data.forEach((list) => {
         const listsContainer = document.querySelector(".lists-container");
+        const tasksContainer = document.querySelector(".tasks-container");
         const listDiv = document.createElement("div");
         const listItem = document.createElement("h1");
+        const listTasks = list.attributes.tasks;
+        const taskDiv = document.createElement("div");
+        const taskItem = document.createElement("li");
 
         const renderList = () => {
           listItem.textContent = `${list.attributes.name}`;
