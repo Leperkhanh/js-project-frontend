@@ -3,13 +3,13 @@
   justify-content: space-around;
 }
 
-.task-form-container {
+.list-form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.task-form-container > button {
+.list-form-container > button {
   margin-top: 10px;
   background-color: aqua;
   border: none;
@@ -18,10 +18,10 @@
   padding-bottom: 5px;
 }
 
-.task-form-container > button:hover {
+.list-form-container > button:hover {
   cursor: pointer;
 }
 
-.task-form-input {
+.list-form-input {
   text-align: center;
 }
