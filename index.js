@@ -81,7 +81,3 @@ function postList(name) {
       renderList();
     });
 }
-
-// taskItem.textContent = `${task.body}`;
-//           taskDiv.appendChild(taskItem);
-//           tasksContainer.appendChild(taskDiv);
