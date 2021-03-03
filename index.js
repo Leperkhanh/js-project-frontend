@@ -17,12 +17,12 @@ function getLists() {
     .then(resp => resp.json())
     .then(lists => {
       lists.data.forEach(list => {
-        render(list);
+        renderList(list);
       });
     });
 }
 
-function render(list) {
+function renderList(list) {
   const listsContainer = document.querySelector(".lists-container");
   const listDiv = document.createElement("div");
   const listItem = document.createElement("h1");
