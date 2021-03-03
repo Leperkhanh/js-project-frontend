@@ -27,13 +27,13 @@ function renderList(list) {
   const listDiv = document.createElement("div");
   const listItem = document.createElement("h1");
 
-  const renderList = () => {
+  const appendList = () => {
     listItem.textContent = `${list.attributes.name}`;
     listDiv.appendChild(listItem);
     listsContainer.appendChild(listDiv);
   };
 
-  renderList();
+  appendList();
 }
 
 function getTasks() {
