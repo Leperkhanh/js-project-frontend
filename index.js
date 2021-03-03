@@ -76,16 +76,20 @@ function postList(name) {
   })
     .then(resp => resp.json())
     .then(list => {
-      const listData = list.data;
-      const listsContainer = document.querySelector(".lists-container");
-      const listDiv = document.createElement("div");
-      const listItem = document.createElement("h1");
-      const renderList = () => {
-        listItem.textContent = `${listData.attributes.name}`;
-        listDiv.appendChild(listItem);
-        listsContainer.appendChild(listDiv);
-      };
-
-      renderList();
+      renderPostList(list);
     });
+}
+
+function renderPostList(list) {
+  const listData = list.data;
+  const listsContainer = document.querySelector(".lists-container");
+  const listDiv = document.createElement("div");
+  const listItem = document.createElement("h1");
+  const renderPostList = () => {
+    listItem.textContent = `${listData.attributes.name}`;
+    listDiv.appendChild(listItem);
+    listsContainer.appendChild(listDiv);
+  };
+
+  renderPostList();
 }
