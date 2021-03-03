@@ -19,7 +19,8 @@ function getLists() {
       lists.data.forEach(list => {
         renderList(list);
       });
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 function renderList(list) {
@@ -43,7 +44,8 @@ function getTasks() {
       tasks.data.forEach(task => {
         renderTask(task);
       });
-    });
+    })
+    .catch(err => console.log(err));
 }
 
 function renderTask(task) {
@@ -78,5 +80,6 @@ function postList(name) {
     .then(list => {
       const listData = list.data;
       renderList(listData);
-    });
+    })
+    .catch(err => console.log(err));
 }
