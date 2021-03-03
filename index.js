@@ -41,18 +41,31 @@ function getTasks() {
     .then(resp => resp.json())
     .then(tasks => {
       tasks.data.forEach(task => {
-        const tasksContainer = document.querySelector(".tasks-container");
-        const taskDiv = document.createElement("div");
-        const taskItem = document.createElement("h1");
-        const renderTask = () => {
-          taskItem.textContent = `${task.attributes.body}`;
-          taskDiv.appendChild(taskItem);
-          tasksContainer.appendChild(taskDiv);
-        };
+        // const tasksContainer = document.querySelector(".tasks-container");
+        // const taskDiv = document.createElement("div");
+        // const taskItem = document.createElement("h1");
+        // const renderTask = () => {
+        //   taskItem.textContent = `${task.attributes.body}`;
+        //   taskDiv.appendChild(taskItem);
+        //   tasksContainer.appendChild(taskDiv);
+        // };
 
-        renderTask();
+        renderTask(task);
       });
     });
+}
+
+function renderTask(task) {
+  const tasksContainer = document.querySelector(".tasks-container");
+  const taskDiv = document.createElement("div");
+  const taskItem = document.createElement("h1");
+  const appendTask = () => {
+    taskItem.textContent = `${task.attributes.body}`;
+    taskDiv.appendChild(taskItem);
+    tasksContainer.appendChild(taskDiv);
+  };
+
+  appendTask();
 }
 
 function createListHandler(e) {
