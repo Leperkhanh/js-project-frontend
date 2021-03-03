@@ -1,11 +1,13 @@
-const endPoint = "http://localhost:3000/api/v1/lists";
+const listsEndPoint = "http://localhost:3000/api/v1/lists";
+const tasksEndPoint = "http://localhost:3000/api/v1/tasks";
 
 document.addEventListener("DOMContentLoaded", () => {
   getLists();
+  getTasks();
 });
 
 function getLists() {
-  fetch(endPoint)
+  fetch(listsEndPoint)
     .then((resp) => resp.json())
     .then((lists) => {
       lists.data.forEach((list) => {
@@ -19,6 +21,26 @@ function getLists() {
         };
 
         renderList();
+      });
+    });
+}
+
+function getTasks() {
+  fetch(tasksEndPoint)
+    .then((resp) => resp.json())
+    .then((tasks) => {
+      console.log(tasks);
+      tasks.data.forEach((task) => {
+        const tasksContainer = document.querySelector(".tasks-container");
+        const taskDiv = document.createElement("div");
+        const taskItem = document.createElement("h1");
+        const renderTask = () => {
+          taskItem.textContent = `${task.attributes.body}`;
+          taskDiv.appendChild(taskItem);
+          tasksContainer.appendChild(taskDiv);
+        };
+
+        renderTask();
       });
     });
 }
