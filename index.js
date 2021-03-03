@@ -58,7 +58,28 @@ function createListHandler(e) {
 }
 
 function postList(name) {
-  console.log(name);
+  const bodyData = { name };
+
+  fetch(listsEndPoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(bodyData),
+  })
+    .then((resp) => resp.json())
+    .then((list) => {
+      console.log(list);
+      const listData = list.data;
+      const listsContainer = document.querySelector(".lists-container");
+      const listDiv = document.createElement("div");
+      const listItem = document.createElement("h1");
+      const renderList = () => {
+        listItem.textContent = `${listData.attributes.name}`;
+        listDiv.appendChild(listItem);
+        listsContainer.appendChild(listDiv);
+      };
+
+      renderList();
+    });
 }
 
 // taskItem.textContent = `${task.body}`;
