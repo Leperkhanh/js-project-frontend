@@ -17,14 +17,9 @@ function getLists() {
     .then(resp => resp.json())
     .then(lists => {
       lists.data.forEach(list => {
-        const listsContainer = document.querySelector(".lists-container");
-        const listItem = document.createElement("div");
         let newList = new List(list, list.attributes);
 
-        listItem.setAttribute("data-id", `${list.id}`);
-        listItem.innerHTML = newList.renderList();
-
-        listsContainer.appendChild(listItem);
+        newList.renderList();
       });
     })
     .catch(err => console.log(err));
