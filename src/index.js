@@ -61,14 +61,9 @@ function postList(name) {
     .then(resp => resp.json())
     .then(list => {
       const listData = list.data;
-      const listsContainer = document.querySelector(".lists-container");
-      const listItem = document.createElement("div");
-
       let newList = new List(list, listData.attributes);
 
-      listItem.setAttribute("data-id", `${list.id}`);
-      listItem.innerHTML = newList.renderList();
-      listsContainer.appendChild(listItem);
+      newList.renderList();
     })
     .catch(err => console.log(err));
 }
