@@ -12,8 +12,8 @@ class List {
     const listItem = document.createElement("h1");
 
     const appendList = () => {
-      listItem.setAttribute("data-id", `${this.id}`);
       listItem.textContent = `${this.name}`;
+      listDiv.setAttribute("data-id", `${this.id}`);
       listDiv.appendChild(listItem);
       listsContainer.appendChild(listDiv);
     };
