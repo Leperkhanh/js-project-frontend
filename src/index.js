@@ -17,24 +17,17 @@ function getLists() {
     .then(resp => resp.json())
     .then(lists => {
       lists.data.forEach(list => {
-        renderList(list);
+        const listsContainer = document.querySelector(".lists-container");
+        const listItem = document.createElement("div");
+        let newList = new List(list, list.attributes);
+
+        listItem.setAttribute("data-id", `${list.id}`);
+        listItem.innerHTML = newList.renderList();
+
+        listsContainer.appendChild(listItem);
       });
     })
     .catch(err => console.log(err));
-}
-
-function renderList(list) {
-  const listsContainer = document.querySelector(".lists-container");
-  const listDiv = document.createElement("div");
-  const listItem = document.createElement("h1");
-
-  const appendList = () => {
-    listItem.textContent = `${list.attributes.name}`;
-    listDiv.appendChild(listItem);
-    listsContainer.appendChild(listDiv);
-  };
-
-  appendList();
 }
 
 function getTasks() {
@@ -42,23 +35,17 @@ function getTasks() {
     .then(resp => resp.json())
     .then(tasks => {
       tasks.data.forEach(task => {
-        renderTask(task);
+        const taskContainer = document.querySelector(".tasks-container");
+        const taskItem = document.createElement("div");
+        let newTask = new Task(task, task.attributes);
+
+        taskItem.setAttribute("data-id", `${task.id}`);
+        taskItem.innerHTML = newTask.renderTask();
+
+        taskContainer.appendChild(taskItem);
       });
     })
     .catch(err => console.log(err));
-}
-
-function renderTask(task) {
-  const tasksContainer = document.querySelector(".tasks-container");
-  const taskDiv = document.createElement("div");
-  const taskItem = document.createElement("h1");
-  const appendTask = () => {
-    taskItem.textContent = `${task.attributes.body}`;
-    taskDiv.appendChild(taskItem);
-    tasksContainer.appendChild(taskDiv);
-  };
-
-  appendTask();
 }
 
 function createListHandler(e) {
@@ -79,7 +66,14 @@ function postList(name) {
     .then(resp => resp.json())
     .then(list => {
       const listData = list.data;
-      renderList(listData);
+      const listsContainer = document.querySelector(".lists-container");
+      const listItem = document.createElement("div");
+
+      let newList = new List(list, listData.attributes);
+
+      listItem.setAttribute("data-id", `${list.id}`);
+      listItem.innerHTML = newList.renderList();
+      listsContainer.appendChild(listItem);
     })
     .catch(err => console.log(err));
 }
