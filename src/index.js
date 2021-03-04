@@ -17,27 +17,17 @@ function getLists() {
     .then(resp => resp.json())
     .then(lists => {
       lists.data.forEach(list => {
+        const listsContainer = document.querySelector(".lists-container");
+        const listItem = document.createElement("div");
         let newList = new List(list, list.attributes);
 
-        renderList(list);
+        listItem.setAttribute("data-id", `${list.id}`);
+        listItem.innerHTML = newList.renderList();
+
+        listsContainer.appendChild(listItem);
       });
     })
     .catch(err => console.log(err));
-}
-
-function renderList(list) {
-  const listsContainer = document.querySelector(".lists-container");
-  const listDiv = document.createElement("div");
-  const listItem = document.createElement("h1");
-
-  const appendList = () => {
-    listItem.setAttribute("data-id", `${list.id}`);
-    listItem.textContent = `${list.attributes.name}`;
-    listDiv.appendChild(listItem);
-    listsContainer.appendChild(listDiv);
-  };
-
-  appendList();
 }
 
 function getTasks() {
@@ -83,7 +73,14 @@ function postList(name) {
     .then(resp => resp.json())
     .then(list => {
       const listData = list.data;
-      renderList(listData);
+      const listsContainer = document.querySelector(".lists-container");
+      const listItem = document.createElement("div");
+
+      let newList = new List(list, listData.attributes);
+
+      listItem.setAttribute("data-id", `${list.id}`);
+      listItem.innerHTML = newList.renderList();
+      listsContainer.appendChild(listItem);
     })
     .catch(err => console.log(err));
 }
