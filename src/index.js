@@ -17,6 +17,8 @@ function getLists() {
     .then(resp => resp.json())
     .then(lists => {
       lists.data.forEach(list => {
+        let newList = new List(list, list.attributes);
+
         renderList(list);
       });
     })
@@ -29,6 +31,7 @@ function renderList(list) {
   const listItem = document.createElement("h1");
 
   const appendList = () => {
+    listItem.setAttribute("data-id", `${list.id}`);
     listItem.textContent = `${list.attributes.name}`;
     listDiv.appendChild(listItem);
     listsContainer.appendChild(listDiv);
@@ -51,8 +54,9 @@ function getTasks() {
 function renderTask(task) {
   const tasksContainer = document.querySelector(".tasks-container");
   const taskDiv = document.createElement("div");
-  const taskItem = document.createElement("h1");
+  const taskItem = document.createElement("p");
   const appendTask = () => {
+    taskItem.setAttribute("data-id", `${task.id}`);
     taskItem.textContent = `${task.attributes.body}`;
     taskDiv.appendChild(taskItem);
     tasksContainer.appendChild(taskDiv);
