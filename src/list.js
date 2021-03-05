@@ -19,8 +19,17 @@ class List {
       listTitleData.textContent = `${this.name}`;
       viewLink.textContent = `View`;
       deleteLink.textContent = `Delete`;
+      viewLink.classList.add("cursor-pointer");
+      deleteLink.classList.add("cursor-pointer");
       deleteLink.classList.add("pl-5");
       listActionsData.classList.add("text-right", "pr-20");
+      listRow.classList.add(
+        "border-b-2",
+        `hover:bg-blue-700`,
+        "round-lg",
+        "leading-8",
+        "shadow-lg"
+      );
       listActionsData.appendChild(viewLink);
       listActionsData.appendChild(deleteLink);
       listRow.appendChild(listTitleData);

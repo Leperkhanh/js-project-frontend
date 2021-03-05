@@ -10,39 +10,48 @@
     />
     <title>Document</title>
   </head>
-  <body class="bg-blue-400">
-    <div class="body-container flex justify-around mt-20">
-      <form
-        class="list-form border-2 items-center text-center flex-col py-4"
-        action=""
-      >
-        <h1 class="mb-2">Create a List</h1>
-        <div class="list-form-input">
-          <h3>List Name:</h3>
-          <input
-            class="border w-4/5 mt-4 text-center"
-            type="text"
-            placeholder="New List Name"
-          />
-          <div class="submit-button mt-3">
-            <input
-              class="bg-blue-700 w-4/5 text-black font-bold hover:bg-white rounded-md"
-              id="list-submit-button"
-              type="submit"
-              value="SUBMIT"
-            />
-          </div>
-        </div>
-      </form>
-      <div class="lists-container border-2 text-center py-4 w-full">
-        <table class="list-table w-full">
-          <tr>
-            <th>List Name</th>
-            <th class="pl-5 text-right pr-24">Actions</th>
-          </tr>
-        </table>
+  <body class="from-blue-600 to-blue-300 bg-gradient-to-l">
+    <div class="body-container justify-around mt-20 w-4/5 mx-auto">
       </div>
-      <div class="tasks-container border-2 text-center py-4"></div>
+      <div
+        class="top-container flex border-4 rounded overflow-hidden shadow-lg h-full"
+      >
+        <div class="list-form-container w-2/6">
+          <form
+            class="list-form items-center text-center flex-col py-4 border-r-4 h-full"
+            action=""
+          >
+            <h1 class="mb-2">Create a List</h1>
+            <div class="list-form-input">
+              <h3>List Name:</h3>
+              <input
+                class="border w-4/5 mt-4 text-center"
+                type="text"
+                placeholder="New List Name"
+              />
+              <div class="submit-button mt-3">
+                <input
+                  class="bg-blue-700 w-4/5 text-black font-bold hover:bg-white rounded-md"
+                  id="list-submit-button"
+                  type="submit"
+                  value="SUBMIT"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="lists-container text-center w-full shadow-lg">
+          <table class="list-table w-full">
+            <tr class="border-b-2 leading-8">
+              <th>List Name</th>
+              <th class="pl-5 text-right pr-24">Actions</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="tasks-container border-2 text-center py-4 mt-4">
+        <h1 class="text-4xl font-bold">Tasks</h1>
+      </div>
     </div>
     <script type="text/javascript" src="./src/list.js"></script>
     <script type="text/javascript" src="./src/task.js"></script>
