@@ -30,15 +30,9 @@ function getTasks() {
     .then(resp => resp.json())
     .then(tasks => {
       tasks.data.forEach(task => {
-        // const taskContainer = document.querySelector(".tasks-container");
-        // const taskItem = document.createElement("div");
         let newTask = new Task(task, task.attributes);
 
         newTask.renderTask();
-        // taskItem.setAttribute("data-id", `${task.id}`);
-        // taskItem.innerHTML = newTask.renderTask();
-
-        // taskContainer.appendChild(taskItem);
       });
     })
     .catch(err => console.log(err));
