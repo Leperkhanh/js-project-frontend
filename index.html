@@ -10,23 +10,32 @@
     />
     <title>Document</title>
   </head>
-  <body>
-    <div class="body-container flex justify-around">
+  <body class="bg-blue-400">
+    <div class="body-container flex justify-around mt-20">
       <form
-        class="list-form border-2 items-center text-center flex-col"
+        class="list-form border-2 items-center text-center flex-col py-4"
         action=""
       >
         <h1 class="mb-2">Create a List</h1>
         <div class="list-form-input">
           <h3>List Name:</h3>
-          <input class="border w-4/5" type="text" />
+          <input
+            class="border w-4/5 mt-4 text-center"
+            type="text"
+            placeholder="New List Name"
+          />
           <div class="submit-button mt-3">
-            <input id="list-submit-button" type="submit" value="SUBMIT" />
+            <input
+              class="bg-blue-700 w-4/5 text-black font-bold hover:bg-white rounded-md"
+              id="list-submit-button"
+              type="submit"
+              value="SUBMIT"
+            />
           </div>
         </div>
       </form>
-      <div class="lists-container"></div>
-      <div class="tasks-container">
+      <div class="lists-container border-2 text-center py-4"></div>
+      <div class="tasks-container border-2 text-center py-4">
         <ol></ol>
       </div>
     </div>

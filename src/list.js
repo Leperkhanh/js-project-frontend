@@ -14,6 +14,7 @@ class List {
     const appendList = () => {
       listItem.textContent = `${this.name}`;
       listDiv.setAttribute("data-id", `${this.id}`);
+      listDiv.classList.add("mx-5", "my-2", "hover:bg-white");
       listDiv.appendChild(listItem);
       listsContainer.appendChild(listDiv);
     };
