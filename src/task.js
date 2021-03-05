@@ -19,13 +19,6 @@ class Task {
     };
     appendTask();
   }
-
-  // renderTask() {
-
-  //   return `
-  //       <p>${this.body}</p>
-  //     `;
-  // }
 }
 
 Task.all = [];
