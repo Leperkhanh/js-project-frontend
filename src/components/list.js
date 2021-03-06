@@ -7,28 +7,28 @@ class List {
   }
 
   renderList() {
-    const listTable = document.querySelector(".list-table");
+    const listTable = document.querySelector('.list-table');
 
     const appendList = () => {
-      const listRow = document.createElement("tr");
-      const listTitleData = document.createElement("td");
-      const listActionsData = document.createElement("td");
-      const viewLink = document.createElement("a");
-      const deleteLink = document.createElement("a");
+      const listRow = document.createElement('tr');
+      const listTitleData = document.createElement('td');
+      const listActionsData = document.createElement('td');
+      const viewLink = document.createElement('a');
+      const deleteLink = document.createElement('a');
 
       listTitleData.textContent = `${this.name}`;
       viewLink.textContent = `View`;
       deleteLink.textContent = `Delete`;
-      viewLink.classList.add("cursor-pointer");
-      deleteLink.classList.add("cursor-pointer", "pl-5", "delete-list-button");
-      deleteLink.setAttribute("id", `delete-list-button-${this.id}`);
-      listActionsData.classList.add("text-right", "pr-20");
+      viewLink.classList.add('cursor-pointer');
+      deleteLink.classList.add('cursor-pointer', 'pl-5', 'delete-list-button');
+      deleteLink.setAttribute('id', `delete-list-button-${this.id}`);
+      listActionsData.classList.add('text-right', 'pr-20');
       listRow.classList.add(
-        "border-b-2",
+        'border-b-2',
         `hover:bg-blue-700`,
-        "round-lg",
-        "leading-8",
-        "shadow-lg"
+        'round-lg',
+        'leading-8',
+        'shadow-lg'
       );
       listActionsData.appendChild(viewLink);
       listActionsData.appendChild(deleteLink);
