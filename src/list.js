@@ -20,8 +20,8 @@ class List {
       viewLink.textContent = `View`;
       deleteLink.textContent = `Delete`;
       viewLink.classList.add("cursor-pointer");
-      deleteLink.classList.add("cursor-pointer");
-      deleteLink.classList.add("pl-5");
+      deleteLink.classList.add("cursor-pointer", "pl-5", "delete-list-button");
+      deleteLink.setAttribute("id", `delete-list-button-${this.id}`);
       listActionsData.classList.add("text-right", "pr-20");
       listRow.classList.add(
         "border-b-2",
