@@ -3,6 +3,20 @@ class List {
     this.id = list.id;
     this.name = attributes.name;
   }
+
+  renderRow() {
+    return `
+      <tr>
+        <td>
+          ${this.name}
+        </td>
+        <td class="text-right pr-20">
+        <a class="cursor-pointer">View</a>
+        <a class="cursor-pointer pl-5 delete-list-button">Delete</a>
+        </td>
+      </tr>
+    `;
+  }
 }
 
 // class List {
