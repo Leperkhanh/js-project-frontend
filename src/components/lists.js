@@ -8,6 +8,20 @@ class Lists {
 
   initBindingsAndEventListeners() {
     this.listsTableContainer = document.querySelector('.lists-table');
+    this.listForm = document.querySelector('.list-form');
+    this.listInput = document.getElementById('list-input');
+    this.listForm.addEventListener('submit', this.createList.bind(this));
+  }
+
+  createList(e) {
+    e.preventDefault();
+    const listValue = this.listInput.value;
+
+    this.adapter.createList(listValue).then(list => {
+      console.log(list);
+      this.lists.push(new List(list, list.data.attributes));
+      this.render();
+    });
   }
 
   fetchAndLoadLists() {
