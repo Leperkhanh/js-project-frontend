@@ -19,4 +19,18 @@ class ListsAdapter {
       body: JSON.stringify({ list }),
     }).then(response => response.json());
   }
+
+  deleteList(listName, id) {
+    const list = {
+      name: listName,
+      id: id,
+    };
+    return fetch(`${this.baseUrl}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ list }),
+    }).then(response => response.json());
+  }
 }

@@ -11,15 +11,33 @@ class Lists {
     this.listForm = document.querySelector('.list-form');
     this.listInput = document.getElementById('list-input');
     this.listForm.addEventListener('submit', this.createList.bind(this));
+    this.listsTableContainer.addEventListener(
+      'click',
+      this.deleteList.bind(this)
+    );
+  }
+
+  deleteList(e) {
+    if (e.target.classList.contains('delete-list-button')) {
+      const listRow = e.target.parentElement.parentElement;
+      const listName = listRow.childNodes[1].textContent;
+      listRow.remove();
+
+      const listId = listRow.dataset.id;
+      this.adapter.deleteList(listName, listId).then(list => {
+        console.log(list);
+      });
+    }
   }
 
   createList(e) {
     e.preventDefault();
+    console.log(e);
     const listValue = this.listInput.value;
 
     this.adapter.createList(listValue).then(list => {
-      console.log(list);
       this.lists.push(new List(list, list.data.attributes));
+      this.listInput.value = '';
       this.render();
     });
   }

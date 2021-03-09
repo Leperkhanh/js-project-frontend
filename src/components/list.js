@@ -1,18 +1,16 @@
 class List {
   constructor(list, attributes) {
-    this.id = list.id;
+    this.id = list.id || list.data.id;
     this.name = attributes.name;
   }
 
   renderRow() {
     return `
-      <tr>
-        <td>
-          ${this.name}
-        </td>
+      <tr data-id=${this.id}>
+        <td>${this.name}</td>
         <td class="text-right pr-20">
-        <a class="cursor-pointer">View</a>
-        <a class="cursor-pointer pl-5 delete-list-button">Delete</a>
+          <a class="cursor-pointer">View</a>
+          <a class="cursor-pointer pl-5 delete-list-button" id="delete-list-button">Delete</a>
         </td>
       </tr>
     `;
