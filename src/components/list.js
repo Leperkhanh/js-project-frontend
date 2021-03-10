@@ -9,8 +9,8 @@ class List {
       <tr data-id=${this.id}>
         <td>${this.name}</td>
         <td class="text-right pr-20">
-          <a class="cursor-pointer">View</a>
-          <a class="cursor-pointer pl-5 delete-list-button" id="delete-list-button">Delete</a>
+          <a class="view-list-button cursor-pointer">View</a>
+          <a class="delete-list-button cursor-pointer pl-5" id="delete-list-button">Delete</a>
         </td>
       </tr>
     `;
