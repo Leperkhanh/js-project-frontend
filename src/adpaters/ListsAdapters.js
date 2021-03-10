@@ -33,4 +33,8 @@ class ListsAdapter {
       body: JSON.stringify({ list }),
     }).then(response => response.json());
   }
+
+  viewList(id) {
+    return fetch(`${this.baseUrl}/${id}`).then(response => response.json());
+  }
 }
