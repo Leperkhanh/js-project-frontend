@@ -56,7 +56,7 @@ class Lists {
   }
 
   render() {
-    this.listsTableContainer.innerHTML = this.lists
+    this.listsTableContainer.innerHTML += this.lists
       .map(list => list.renderRow())
       .join('');
     // for (const list of this.lists) {
