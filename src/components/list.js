@@ -6,16 +6,18 @@ class List {
 
   renderRow() {
     return `
-      <tr data-id=${this.id}>
-        <td>${this.name}</td>
-        <td class="text-right pr-20">
-          <a class="view-list-button cursor-pointer">View</a>
-          <a class="delete-list-button cursor-pointer pl-5" id="delete-list-button">Delete</a>
-        </td>
+      <tr class="hover:bg-blue-700" data-id=${this.id}>
+          <td class="font-extrabold text-2xl pt-3">${this.name}</td>
+          <td class="text-right pr-20">
+            <a class="view-list-button cursor-pointer">View</a>
+            <a class="delete-list-button cursor-pointer pl-5" id="delete-list-button">Delete</a>
+          </td>
       </tr>
     `;
   }
 }
+
+// w-1/2 border
 
 // class List {
 //   constructor(list, attributes) {
