@@ -38,7 +38,7 @@ class Lists {
   viewList(e) {
     if (e.target.classList.contains('view-list-button')) {
       this.tasks = [];
-      const tasksContainer = document.querySelector('.tasks');
+      const tasksContainer = document.querySelector('.tasks-table');
       const listId = e.target.parentElement.parentElement.dataset.id;
 
       this.adapter

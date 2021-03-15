@@ -50,9 +50,23 @@
         </div>
       </div>
       <div class="tasks-container border-2 text-center py-4 mt-4">
-        <h1 class="text-4xl font-bold">Tasks</h1>
+        <div class="tasks-header flex w-1/2 m-auto">
+          <h1 class="text-4xl flex font-bold m-auto">Tasks
+            <div class="add-task-button-container">
+              <img class="ml-5" src="https://img.icons8.com/ios-glyphs/40/000000/plus.png"/>
+            </div>
+          </h1>
+          <!-- <img class="add-task-icon" src="https://img.icons8.com/pastel-glyph/40/4a90e2/plus--v2.png"/> -->
+        </div>
         <div class="tasks w-9/12 m-auto">
-
+          <div class="lists-container text-center w-full shadow-lg">
+            <table class="tasks-table w-full border-4 mt-4">
+              <tr class="border-b-2 text-3xl bg-blue-700">
+                <th class="w-9/12">Task Name</th>
+                <th class="pl-5 text-right pr-24 border-l-2">Actions</th>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </div>
