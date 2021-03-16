@@ -41,8 +41,11 @@ class Lists {
   viewList(e) {
     if (e.target.classList.contains('view-list-button')) {
       this.tasks = [];
-      const tasksContainer = document.querySelector('.tasks-table');
+      const tasksContainer = document.querySelector('.tasks-container');
+      const tasksTableContainer = document.querySelector('.tasks-table');
       const listId = e.target.parentElement.parentElement.dataset.id;
+
+      tasksContainer.classList.toggle('hidden');
 
       this.adapter
         .viewList(listId)
@@ -54,7 +57,7 @@ class Lists {
           });
         })
         .then(() => {
-          tasksContainer.innerHTML = this.tasks
+          tasksTableContainer.innerHTML = this.tasks
             .map(task => task.renderTask())
             .join('');
         });
@@ -77,6 +80,7 @@ class Lists {
     this.taskFormContainer.addEventListener('submit', function (e) {
       e.preventDefault();
       this.tasks = [];
+      const taskFormContainer = document.querySelector('.task-form-container');
       const taskListId = document.getElementById('task').dataset.listId;
       const taskValue = document.getElementById('task-input').value;
       console.log(taskListId, taskValue);
@@ -90,6 +94,7 @@ class Lists {
           .map(task => task.renderTask())
           .join('');
       });
+      taskFormContainer.classList.toggle('hidden');
     });
   }
 
