@@ -11,6 +11,8 @@ class Lists {
     this.listsTableContainer = document.querySelector('.lists-table');
     this.listForm = document.querySelector('.list-form');
     this.listInput = document.getElementById('list-input');
+    this.addTaskButton = document.querySelector('.add-task-button');
+    this.taskFormContainer = document.querySelector('.task-form-container');
     this.listForm.addEventListener('submit', this.createList.bind(this));
     this.listsTableContainer.addEventListener(
       'click',
@@ -20,6 +22,7 @@ class Lists {
       'click',
       this.viewList.bind(this)
     );
+    this.addTaskButton.addEventListener('click', this.createTask.bind(this));
   }
 
   deleteList(e) {
@@ -51,7 +54,6 @@ class Lists {
           });
         })
         .then(() => {
-          console.log(this.tasks);
           tasksContainer.innerHTML = this.tasks
             .map(task => task.renderTask())
             .join('');
@@ -61,13 +63,33 @@ class Lists {
 
   createList(e) {
     e.preventDefault();
-    console.log(e);
     const listValue = this.listInput.value;
 
     this.adapter.createList(listValue).then(list => {
       this.lists.push(new List(list, list.data.attributes));
       this.listInput.value = '';
       this.render();
+    });
+  }
+
+  createTask() {
+    this.taskFormContainer.classList.toggle('hidden');
+    this.taskFormContainer.addEventListener('submit', function (e) {
+      e.preventDefault();
+      this.tasks = [];
+      const taskListId = document.getElementById('task').dataset.listId;
+      const taskValue = document.getElementById('task-input').value;
+      console.log(taskListId, taskValue);
+      const tasksAdapter = new TasksAdapter();
+      tasksAdapter.createTask(taskListId, taskValue).then(task => {
+        const tasksContainer = document.querySelector('.tasks-table');
+        const taskData = task.data;
+        const taskAttributes = task.data.attributes;
+        this.tasks.push(new Task(taskData, taskAttributes));
+        tasksContainer.innerHTML += this.tasks
+          .map(task => task.renderTask())
+          .join('');
+      });
     });
   }
 
@@ -85,7 +107,7 @@ class Lists {
   }
 
   render() {
-    this.listsTableContainer.innerHTML += this.lists
+    this.listsTableContainer.innerHTML = this.lists
       .map(list => list.renderRow())
       .join('');
   }
