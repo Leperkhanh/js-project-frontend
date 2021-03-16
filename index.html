@@ -42,10 +42,6 @@
         </div>
         <div class="lists-container text-center w-full shadow-lg">
           <table class="lists-table w-full">
-            <tr class="border-b-2 text-3xl bg-blue-700">
-              <th class="w-9/12">List Name</th>
-              <th class="pl-5 text-right pr-24 border-l-2">Actions</th>
-            </tr>
           </table>
         </div>
       </div>
@@ -53,18 +49,37 @@
         <div class="tasks-header flex w-1/2 m-auto">
           <h1 class="text-4xl flex font-bold m-auto">Tasks
             <div class="add-task-button-container">
-              <img class="ml-5" src="https://img.icons8.com/ios-glyphs/40/000000/plus.png"/>
+              <img class="ml-5 add-task-button" src="https://img.icons8.com/ios-glyphs/40/000000/plus.png"/>
             </div>
           </h1>
-          <!-- <img class="add-task-icon" src="https://img.icons8.com/pastel-glyph/40/4a90e2/plus--v2.png"/> -->
         </div>
         <div class="tasks w-9/12 m-auto">
-          <div class="lists-container text-center w-full shadow-lg">
+          <div class="tasks-item-container text-center w-full shadow-lg">
+            <div class="task-form-container hidden">
+              <form
+              class="task-form items-center text-center flex-col py-4 h-full"
+              action=""
+              >
+              <h1 class="mb-2">Create a Task</h1>
+              <div class="task-form-input">
+                <h3>Task Name:</h3>
+                <input
+                  class="border w-4/5 mt-4 text-center"
+                  id="task-input"
+                  type="text"
+                  placeholder="New Task Name"
+                />
+                <div class="submit-button mt-3">
+                  <input
+                    class="bg-blue-700 w-4/5 text-black font-bold hover:bg-white rounded-md"
+                    type="submit"
+                    value="SUBMIT"
+                  />
+                </div>
+              </div>
+            </form>
+            </div>
             <table class="tasks-table w-full border-4 mt-4">
-              <tr class="border-b-2 text-3xl bg-blue-700">
-                <th class="w-9/12">Task Name</th>
-                <th class="pl-5 text-right pr-24 border-l-2">Actions</th>
-              </tr>
             </table>
           </div>
         </div>
