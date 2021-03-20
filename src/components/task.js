@@ -9,10 +9,6 @@ class Task {
     return `
     <tr class=hover:bg-blue-700" id=task data-id=${this.id} data-list-id=${this.list_id}>
     <td class="font-extrabold text-2xl pt-3">${this.body}</td>
-    <td class="text-right pr-20">
-      <a class="edit-task-button cursor-pointer">Edit</a>
-      <a class="delete-tasl-button cursor-pointer pl-5" id="delete-task-button">Delete</a>
-    </td>
     </tr>
     `;
   }

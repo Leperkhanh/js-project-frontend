@@ -45,7 +45,11 @@ class Lists {
       const tasksTableContainer = document.querySelector('.tasks-table');
       const listId = e.target.parentElement.parentElement.dataset.id;
 
-      tasksContainer.classList.toggle('hidden');
+      if (tasksContainer.classList.contains('hidden')) {
+        tasksContainer.classList.toggle('hidden');
+      }
+
+      tasksTableContainer.setAttribute('data-list-id', listId);
 
       this.adapter
         .viewList(listId)
@@ -60,6 +64,10 @@ class Lists {
           tasksTableContainer.innerHTML = this.tasks
             .map(task => task.renderTask())
             .join('');
+
+          // tasksTableContainer.innerHTML = this.tasks
+          //   .map(task => task.renderTask())
+          //   .join('');
         });
     }
   }
@@ -79,21 +87,25 @@ class Lists {
     this.taskFormContainer.classList.toggle('hidden');
     this.taskFormContainer.addEventListener('submit', function (e) {
       e.preventDefault();
-      this.tasks = [];
+      // this.tasks = [];
       const taskFormContainer = document.querySelector('.task-form-container');
-      const taskListId = document.getElementById('task').dataset.listId;
-      const taskValue = document.getElementById('task-input').value;
+      const taskListId = document.querySelector('.tasks-table').dataset.listId;
+      let taskValue = document.getElementById('task-input').value;
       console.log(taskListId, taskValue);
       const tasksAdapter = new TasksAdapter();
       tasksAdapter.createTask(taskListId, taskValue).then(task => {
+        this.tasks = [];
+        console.log(taskValue);
         const tasksContainer = document.querySelector('.tasks-table');
         const taskData = task.data;
         const taskAttributes = task.data.attributes;
+        console.log(this.tasks);
         this.tasks.push(new Task(taskData, taskAttributes));
         tasksContainer.innerHTML += this.tasks
           .map(task => task.renderTask())
           .join('');
       });
+      document.getElementById('task-input').value = '';
       taskFormContainer.classList.toggle('hidden');
     });
   }
