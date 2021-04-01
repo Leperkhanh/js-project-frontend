@@ -10,55 +10,9 @@ class List {
           <td class="font-extrabold text-2xl pt-3">${this.name}</td>
           <td class="text-right pr-20">
             <a class="view-list-button cursor-pointer">View</a>
-            <a class="delete-list-button cursor-pointer pl-5" id="delete-list-button">Delete</a>
+            <a class="delete-list-button cursor-pointer pl-5 ml-10">Delete</a>
           </td>
       </tr>
     `;
   }
 }
-
-// w-1/2 border
-
-// class List {
-//   constructor(list, attributes) {
-//     this.id = list.id;
-//     this.name = attributes.name;
-//     this.userName = attributes.user.email;
-//     List.all.push(this);
-//   }
-
-//   renderList() {
-//     const listTable = document.querySelector('.list-table');
-
-//     const appendList = () => {
-//       const listRow = document.createElement('tr');
-//       const listTitleData = document.createElement('td');
-//       const listActionsData = document.createElement('td');
-//       const viewLink = document.createElement('a');
-//       const deleteLink = document.createElement('a');
-
-//       listTitleData.textContent = `${this.name}`;
-//       viewLink.textContent = `View`;
-//       deleteLink.textContent = `Delete`;
-//       viewLink.classList.add('cursor-pointer');
-//       deleteLink.classList.add('cursor-pointer', 'pl-5', 'delete-list-button');
-//       deleteLink.setAttribute('id', `delete-list-button-${this.id}`);
-//       listActionsData.classList.add('text-right', 'pr-20');
-//       listRow.classList.add(
-//         'border-b-2',
-//         `hover:bg-blue-700`,
-//         'round-lg',
-//         'leading-8',
-//         'shadow-lg'
-//       );
-//       listActionsData.appendChild(viewLink);
-//       listActionsData.appendChild(deleteLink);
-//       listRow.appendChild(listTitleData);
-//       listRow.appendChild(listActionsData);
-//       listTable.appendChild(listRow);
-//     };
-//     appendList();
-//   }
-// }
-
-// List.all = [];

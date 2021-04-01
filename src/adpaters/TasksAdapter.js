@@ -22,17 +22,3 @@ class TasksAdapter {
     }).then(response => response.json());
   }
 }
-
-// createTask(taskListId, taskValue) {
-//   const task = {
-//     list_id: taskListId
-//     body: taskValue,
-//   };
-//   return fetch(this.baseUrl, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ task }),
-//   }).then(response => response.json());
-// }
